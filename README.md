@@ -10,19 +10,11 @@
     <img src="https://img.shields.io/badge/AI%20Engine-Behavioral%20Risk%20Scoring-007ACC?style=for-the-badge&logo=artificialintelligence&logoColor=white" />
     <img src="https://img.shields.io/badge/Status-Production%20Ready-success?style=for-the-badge" />
   </p>
-
-  <p>
-    <a href="#-core-architecture-blueprint"><b>Architecture Diagram</b></a> •
-    <a href="#-system-data-flow-mermaid"><b>Interactive Flow</b></a> •
-    <a href="#-live-ai-threat-detection--sns-alerting"><b>Security & AI Alerts</b></a> •
-    <a href="#-infrastructure-implementation-snapshots"><b>Snapshots</b></a> •
-    <a href="#-quick-start--deployment"><b>Deployment</b></a>
-  </p>
 </div>
 
 ---
 
-##  Core Architecture Blueprint
+## 🏗️ Core Architecture Blueprint
 The high-level enterprise blueprint of the secure banking infrastructure, enforcing strict perimeter isolation, multi-AZ deployment, and integrated AI security layers:
 
 <p align="center">
@@ -31,9 +23,7 @@ The high-level enterprise blueprint of the secure banking infrastructure, enforc
 
 ---
 
-##  System Data Flow
-The sequence and communication flow from user entry at the CloudFront edge down to isolated private databases and automated SecOps remediation:
-
+## 🔄 System Data Flow
 ```mermaid
 graph TD
     User([Client / User Browser]) -->|HTTPS / API Requests| CF[CloudFront Edge Locations]
