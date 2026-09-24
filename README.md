@@ -14,7 +14,7 @@
 
 ---
 
-## 🏗️ Core Architecture Blueprint
+##  Core Architecture Blueprint
 The high-level enterprise blueprint of the secure banking infrastructure, enforcing strict perimeter isolation, multi-AZ deployment, and integrated AI security layers:
 
 <p align="center">
