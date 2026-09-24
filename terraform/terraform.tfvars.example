@@ -1,0 +1,7 @@
+aws_region   = "eu-central-1"
+project_name = "secure-banking"
+db_password  = "ReplaceWithAStrongPassword123!"
+alert_email  = "your-email@example.com"
+
+# انسخي الملف ده باسم terraform.tfvars واملأي القيم الحقيقية
+# وضيفي terraform.tfvars في .gitignore عشان الباسورد ميترفعش على GitHub
