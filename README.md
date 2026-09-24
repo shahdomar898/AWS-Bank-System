@@ -1,52 +1,50 @@
 <div align="center">
 
-  <img src="images/arch.jpg" alt="Banner" width="100%" style="border-radius: 10px; margin-bottom: 20px;"/>
-
-  #  Enterprise Secure Cloud-Native Banking Platform & AI Risk Engine
-  
-  <p align="center">
-    <b>A Zero-Trust, Highly Available, Multi-AZ Financial Ecosystem with Automated SecOps & Real-Time Threat Mitigation on AWS</b>
-  </p>
+  <h1 align="center">🛡️ Enterprise Secure Cloud-Native Banking Platform & AI Risk Engine</h1>
+  <p align="center"><b>A Zero-Trust, Highly Available, Multi-AZ Financial Ecosystem with Automated SecOps & Real-Time Threat Mitigation</b></p>
 
   <p>
     <img src="https://img.shields.io/badge/AWS-Cloud-orange?style=for-the-badge&logo=amazonaws&logoColor=white" />
     <img src="https://img.shields.io/badge/Terraform-IaC-844FBA?style=for-the-badge&logo=terraform&logoColor=white" />
     <img src="https://img.shields.io/badge/Security-AWS%20WAF%20%26%20Shield-DD344C?style=for-the-badge&logo=awswaf&logoColor=white" />
     <img src="https://img.shields.io/badge/AI%20Engine-Behavioral%20Risk%20Scoring-007ACC?style=for-the-badge&logo=artificialintelligence&logoColor=white" />
-    <img src="https://img.shields.io/badge/Compliance-PCI--DSS%20Ready-success?style=for-the-badge" />
+    <img src="https://img.shields.io/badge/Status-Production%20Ready-success?style=for-the-badge" />
   </p>
 
   <p>
-    <a href="#-executive-summary"><b>Overview</b></a> •
-    <a href="#-system-architecture--data-flow"><b>Architecture</b></a> •
-    <a href="#-real-time-ai-threat-detection--sns-alerting"><b>Security & AI</b></a> •
-    <a href="#-technical-blueprints"><b>Blueprints</b></a> •
-    <a href="#-deployment-guide"><b>Deployment</b></a>
+    <a href="#-core-architecture-blueprint"><b>Architecture Diagram</b></a> •
+    <a href="#-system-data-flow-mermaid"><b>Interactive Flow</b></a> •
+    <a href="#-live-ai-threat-detection--sns-alerting"><b>Security & AI Alerts</b></a> •
+    <a href="#-infrastructure-implementation-snapshots"><b>Snapshots</b></a> •
+    <a href="#-quick-start--deployment"><b>Deployment</b></a>
   </p>
 </div>
 
 ---
 
-##  Executive Summary
-Modern digital banking requires absolute resilience against sophisticated cyber-attacks, instant fraud detection, and strict data privacy. This project implements a **production-grade, cloud-native banking infrastructure** entirely automated via **Terraform (IaC)**. 
+##  Core Architecture Blueprint
+The high-level enterprise blueprint of the secure banking infrastructure, enforcing strict perimeter isolation, multi-AZ deployment, and integrated AI security layers:
 
-The architecture isolates the core database and application layers behind multi-layered perimeter defenses, leverages **ECS Fargate** for serverless container orchestration, and embeds an **AI-driven risk assessment engine** capable of intercepting unauthorized anomalies and triggering automated remediations in real time.
+<p align="center">
+  <img src="images/arch.jpg" alt="System Architecture Blueprint" width="100%" style="border-radius: 8px; border: 1px solid #333;"/>
+</p>
 
 ---
 
-##  System Architecture & Data Flow
+##  System Data Flow
+The sequence and communication flow from user entry at the CloudFront edge down to isolated private databases and automated SecOps remediation:
 
 ```mermaid
 graph TD
-    User([Client / User]) -->|HTTPS / API| CF[CloudFront Edge]
-    CF --> WAF[AWS WAF & Shield]
+    User([Client / User Browser]) -->|HTTPS / API Requests| CF[CloudFront Edge Locations]
+    CF --> WAF[AWS WAF & Shield Perimeter]
     WAF --> ALB[Application Load Balancer]
-    ALB -->|Public Subnet| ECS[ECS Fargate - App Tier]
-    ECS -->|Private Subnet| RDS[(PostgreSQL Encrypted DB)]
+    ALB -->|Public Subnet Entry| ECS[ECS Fargate - Containerized App Tier]
+    ECS -->|Encrypted Connection Port 5432| RDS[(PostgreSQL Encrypted DB in Private Subnet)]
     
-    subgraph AI Security & Monitoring
-        ECS -->|Behavioral Logs| CW[CloudWatch Alarms]
-        CW -->|Trigger| Lambda[AWS Lambda Remediation]
-        Lambda -->|Instant Alert| SNS[Amazon SNS]
-        SNS -->|Email / SMS| SecOps[SecOps Admin Team]
+    subgraph AI Security & Automated Remediation Stack
+        ECS -->|Behavioral Telemetry Logs| CW[CloudWatch Alarms & Metrics]
+        CW -->|Trigger Anomaly Event| Lambda[AWS Lambda Automated Remediation]
+        Lambda -->|Instant Security Payload| SNS[Amazon SNS Notification Topic]
+        SNS -->|Email / SMS Alert| SecOps[SecOps Admin Team]
     end
