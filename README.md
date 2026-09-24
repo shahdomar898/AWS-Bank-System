@@ -23,6 +23,15 @@ The core infrastructure blueprint of the secure banking platform, enforcing stri
 
 ---
 
+##  Real-Time Threat Detection & Automated SNS Notification
+The system automatically detects suspicious behavioral patterns (such as unrecognized devices or unusual login timings), computes a risk score, and dispatches instant security alerts via **AWS SNS** directly to administrators[cite: 5]:
+
+<p align="center">
+  <img src="images/sns-alert.jpg" alt="AWS SNS Security Alert Email" width="70%"/>
+</p>
+
+---
+
 ## 🛠️ Technology Stack & Core Modules
 
 | Component Tier | AWS & Tech Services | Implementation Purpose |
@@ -36,7 +45,7 @@ The core infrastructure blueprint of the secure banking platform, enforcing stri
 
 ---
 
-## Infrastructure & Security Visual Blueprint
+## 📐 Infrastructure & Security Visual Blueprint
 
 <details>
 <summary><b>📂 Click to expand and view technical implementation snapshots</b></summary>
